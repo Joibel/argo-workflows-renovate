@@ -1105,6 +1105,12 @@ spec:
                               type: boolean
                           type: object
                       type: object
+                      x-kubernetes-validations:
+                      - message: exactly one artifact location must be specified
+                        rule: '[has(self.s3), has(self.git), has(self.http), has(self.artifactory),
+                          has(self.hdfs), has(self.raw), has(self.oss), has(self.gcs),
+                          has(self.azure), has(self.plugin)].filter(x, x).size() ==
+                          1'
                     artifacts:
                       additionalProperties:
                         description: Artifact indicates an artifact to place at a
@@ -1835,10 +1841,13 @@ spec:
                               Set when loading input artifacts. It is recommended to set the mode value
                               to ensure the artifact has the expected permissions in your container.
                             format: int32
+                            maximum: 511
+                            minimum: 0
                             type: integer
                           name:
                             description: name of the artifact. must be unique within
                               a template's inputs/outputs.
+                            pattern: ^[a-zA-Z0-9_][-a-zA-Z0-9_]*$
                             type: string
                           optional:
                             description: Make Artifacts optional, if Artifacts doesn't
@@ -2177,6 +2186,12 @@ spec:
                         required:
                         - name
                         type: object
+                        x-kubernetes-validations:
+                        - message: exactly one artifact location must be specified
+                          rule: '[has(self.s3), has(self.git), has(self.http), has(self.artifactory),
+                            has(self.hdfs), has(self.raw), has(self.oss), has(self.gcs),
+                            has(self.azure), has(self.plugin)].filter(x, x).size()
+                            == 1'
                       description: Artifacts maps artifact name to Artifact description
                       type: object
                   type: object
@@ -3016,10 +3031,13 @@ spec:
                                 Set when loading input artifacts. It is recommended to set the mode value
                                 to ensure the artifact has the expected permissions in your container.
                               format: int32
+                              maximum: 511
+                              minimum: 0
                               type: integer
                             name:
                               description: name of the artifact. must be unique within
                                 a template's inputs/outputs.
+                              pattern: ^[a-zA-Z0-9_][-a-zA-Z0-9_]*$
                               type: string
                             optional:
                               description: Make Artifacts optional, if Artifacts doesn't
@@ -3362,6 +3380,12 @@ spec:
                           required:
                           - name
                           type: object
+                          x-kubernetes-validations:
+                          - message: exactly one artifact location must be specified
+                            rule: '[has(self.s3), has(self.git), has(self.http), has(self.artifactory),
+                              has(self.hdfs), has(self.raw), has(self.oss), has(self.gcs),
+                              has(self.azure), has(self.plugin)].filter(x, x).size()
+                              == 1'
                         type: array
                       parameters:
                         description: Parameters is the list of parameters to pass
@@ -3386,6 +3410,7 @@ spec:
                                   * It will unmarshall int64, int32, float64, float32, boolean, a plain string and represents it as string.
                                   * It will marshall back to string - marshalling is not symmetric.
                                 type: string
+                              minItems: 1
                               type: array
                             globalName:
                               description: |-
@@ -3394,6 +3419,7 @@ spec:
                               type: string
                             name:
                               description: Name is the parameter name
+                              pattern: ^[a-zA-Z0-9_][-a-zA-Z0-9_]*$
                               type: string
                             value:
                               description: |-
@@ -4347,10 +4373,13 @@ spec:
                         Set when loading input artifacts. It is recommended to set the mode value
                         to ensure the artifact has the expected permissions in your container.
                       format: int32
+                      maximum: 511
+                      minimum: 0
                       type: integer
                     name:
                       description: name of the artifact. must be unique within a template's
                         inputs/outputs.
+                      pattern: ^[a-zA-Z0-9_][-a-zA-Z0-9_]*$
                       type: string
                     optional:
                       description: Make Artifacts optional, if Artifacts doesn't generate
@@ -4681,6 +4710,11 @@ spec:
                   required:
                   - name
                   type: object
+                  x-kubernetes-validations:
+                  - message: exactly one artifact location must be specified
+                    rule: '[has(self.s3), has(self.git), has(self.http), has(self.artifactory),
+                      has(self.hdfs), has(self.raw), has(self.oss), has(self.gcs),
+                      has(self.azure), has(self.plugin)].filter(x, x).size() == 1'
                 type: array
               exitCode:
                 description: ExitCode holds the exit code of a script template
@@ -4708,6 +4742,7 @@ spec:
                           * It will unmarshall int64, int32, float64, float32, boolean, a plain string and represents it as string.
                           * It will marshall back to string - marshalling is not symmetric.
                         type: string
+                      minItems: 1
                       type: array
                     globalName:
                       description: |-
@@ -4716,6 +4751,7 @@ spec:
                       type: string
                     name:
                       description: Name is the parameter name
+                      pattern: ^[a-zA-Z0-9_][-a-zA-Z0-9_]*$
                       type: string
                     value:
                       description: |-
