@@ -1,6 +1,9 @@
 # markdown-spellcheck dictionary
 000s
 0s
+KiB
+MiB
+GiB
 100Gi
 100Mi
 100s
@@ -206,6 +209,7 @@ memoized
 memoizing
 metadata
 minikube
+Multipart
 mutex
 mutexes
 namespace
