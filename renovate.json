@@ -29,6 +29,7 @@
     }
   ],
   "postUpdateOptions": ["yarnDedupeFewer"],
+  "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
     "enabled": true
   }
