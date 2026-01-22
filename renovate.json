@@ -1,9 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "baseBranches": ["main", "release-3.6", "release-3.7"],
   "nix": {
     "enabled": true
   },
-  "includePaths": [
-    "**/dev/nix/flake.nix"
-  ]
+  "packageRules": [
+    {
+      "description": "Disable major updates for release branches (only minor, patch, and security updates allowed)",
+      "matchBaseBranches": ["release-3.6", "release-3.7"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true
+  }
 }
