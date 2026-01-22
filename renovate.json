@@ -28,7 +28,7 @@
       "rangeStrategy": "in-range-only"
     }
   ],
-  "postUpdateOptions": ["yarnDedupeFewer", "gomodTidy"],
+  "postUpdateOptions": ["yarnDedupeFewer", "gomodTidy", "gomodUpdateImportPaths"],
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
     "enabled": true
