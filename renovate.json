@@ -6,12 +6,18 @@
   },
   "packageRules": [
     {
-      "description": "Disable major updates for release branches (only minor, patch, and security updates allowed)",
+      "description": "Only allow patch updates on release branches",
       "matchBaseBranches": ["release-3.6", "release-3.7"],
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false
+    },
+    {
+      "description": "Use conservative lock file updates on release branches",
+      "matchBaseBranches": ["release-3.6", "release-3.7"],
+      "rangeStrategy": "in-range-only"
     }
   ],
+  "postUpdateOptions": ["yarnDedupeFewer"],
   "vulnerabilityAlerts": {
     "enabled": true
   }
