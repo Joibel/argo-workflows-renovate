@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": true,
   "baseBranches": ["main", "release-3.6", "release-3.7"],
   "nix": {
     "enabled": true
