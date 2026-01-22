@@ -48,14 +48,22 @@
         "patch"
       ],
       "automerge": true
+    },
+    {
+      "description": "Disable lock file maintenance on release branches",
+      "matchBaseBranches": [
+        "release-3.6",
+        "release-3.7"
+      ],
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "enabled": false
     }
   ],
   "platformAutomerge": true,
   "lockFileMaintenance": {
-    "enabled": true,
-    "matchBaseBranches": [
-      "main"
-    ]
+    "enabled": true
   },
   "postUpdateOptions": [
     "yarnDedupeFewer",
