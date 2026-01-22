@@ -38,8 +38,25 @@
         "release-3.7"
       ],
       "rangeStrategy": "in-range-only"
+    },
+    {
+      "description": "Automerge patch updates on main",
+      "matchBaseBranches": [
+        "main"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "automerge": true
     }
   ],
+  "platformAutomerge": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "matchBaseBranches": [
+      "main"
+    ]
+  },
   "postUpdateOptions": [
     "yarnDedupeFewer",
     "gomodTidy",
