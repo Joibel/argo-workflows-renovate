@@ -1,34 +1,53 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
-  "baseBranches": ["main", "release-3.6", "release-3.7"],
+  "baseBranchPatterns": [
+    "main",
+    "release-3.6",
+    "release-3.7"
+  ],
   "nix": {
     "enabled": true
   },
   "packageRules": [
     {
       "description": "Disable argo-ui updates (maintained separately)",
-      "matchPackageNames": ["argo-ui"],
+      "matchPackageNames": [
+        "argo-ui"
+      ],
       "enabled": false
     },
     {
       "description": "Disable github.com/argoproj/pkg updates (maintained separately)",
-      "matchPackageNames": ["github.com/argoproj/pkg"],
+      "matchPackageNames": [
+        "github.com/argoproj/pkg"
+      ],
       "enabled": false
     },
     {
       "description": "Only allow patch updates on release branches",
-      "matchBaseBranches": ["release-3.6", "release-3.7"],
-      "matchUpdateTypes": ["major", "minor"],
+      "matchBaseBranches": [
+        "release-3.6",
+        "release-3.7"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
       "enabled": false
     },
     {
       "description": "Use conservative lock file updates on release branches",
-      "matchBaseBranches": ["release-3.6", "release-3.7"],
+      "matchBaseBranches": [
+        "release-3.6",
+        "release-3.7"
+      ],
       "rangeStrategy": "in-range-only"
     }
   ],
-  "postUpdateOptions": ["yarnDedupeFewer"],
+  "postUpdateOptions": [
+    "yarnDedupeFewer"
+  ],
   "vulnerabilityAlerts": {
     "enabled": true
   }
