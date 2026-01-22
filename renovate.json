@@ -11,15 +11,10 @@
   },
   "packageRules": [
     {
-      "description": "Disable argo-ui updates (maintained separately)",
+      "description": "Disable argo updates (maintained separately)",
       "matchPackageNames": [
-        "argo-ui"
-      ],
-      "enabled": false
-    },
-    {
-      "description": "Disable github.com/argoproj/pkg updates (maintained separately)",
-      "matchPackageNames": [
+        "argo-ui",
+        "argoproj/argosay",
         "github.com/argoproj/pkg"
       ],
       "enabled": false
