@@ -41,8 +41,11 @@
     }
   ],
   "postUpdateOptions": [
-    "yarnDedupeFewer"
+    "yarnDedupeFewer",
+    "gomodTidy",
+    "gomodUpdateImportPaths"
   ],
+  "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
     "enabled": true
   }
