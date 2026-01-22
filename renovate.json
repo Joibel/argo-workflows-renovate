@@ -8,7 +8,7 @@
     {
       "description": "Disable major updates for release branches (only minor, patch, and security updates allowed)",
       "matchBaseBranches": ["release-3.6", "release-3.7"],
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": ["major", "minor"],
       "enabled": false
     }
   ],
